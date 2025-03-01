@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Lux</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <section class="first-view">
+            <div class="image-container">
+                <div class="top-image">
+                    <img src="https://images.unsplash.com/photo-1517317533371-702fd50e85b4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHdpbmUlMjBnbGFzc3xlbnwwfHwwfHx8Mg%3D%3D" alt="Coffee" class="main-image center-cropped">
+                </div>
+                <div class="overlay">
+                    <h2>あなたの生活を彩るグラスを紹介するメディア</h2>
+                </div>
+            </div>
+        </section>
+        <div class="scroll_down" id="type06">
+            <a href="#new-posts"><span></span>Scroll</a>
+        </div>
+        <h2 class="centered-title" id="new-posts">New Posts</h2>
+        <section class="new-posts">
+            <div class="posts-container">
+                <% for (let i = 0; i < Math.min(6, posts.length); i++) { %>
+                    <div class="post">
+                        <img src="<%= posts[i].image %>" alt="Post Image <%= i + 1 %>">
+                        <h3><a href="#"><%= posts[i].title %></a></h3>
+                        <p><%= posts[i].content %></p>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

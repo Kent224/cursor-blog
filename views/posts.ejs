@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>All Posts</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <h2 class="all-posts-title">All Posts</h2>
+        <section class="new-posts">
+            <div class="posts-container">
+                <% for (let i = 0; i < posts.length; i++) { %>
+                    <div class="post">
+                        <a href="/posts/detail/<%= posts[i].id %>" class="post-link">
+                            <img src="<%= posts[i].image %>" alt="Post Image <%= i + 1 %>">
+                            <h3><%= posts[i].title %></h3>
+                            <p><%= posts[i].content %></p>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>
