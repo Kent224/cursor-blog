@@ -41,28 +41,6 @@ nav ul li a {
     font-weight: 300;
 }
 
-nav a {
-    position: relative;
-    text-decoration: none;
-    color: #000;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-nav a:hover::after {
-    transform: scaleX(1);
-}
-
 .search-container {
     margin-top: 10px;
     display: flex;
@@ -97,17 +75,6 @@ nav a:hover::after {
     background-color: #555;
 }
 
-.youtube {
-    background: #eaeaea;
-    padding: 20px;
-    text-align: center;
-}
-
-.all-posts-title {
-    text-align: center;
-    margin: 20px 0;
-}
-
 .new-posts {
     max-width: 1200px;
     margin: 0 auto;
@@ -125,8 +92,8 @@ nav a:hover::after {
 }
 
 .post {
-    position: relative; /* 相対位置を設定 */
-    overflow: hidden; /* はみ出した部分を隠す */
+    position: relative;
+    overflow: hidden;
     width: calc(50% - 20px);
     margin: 10px;
     box-sizing: border-box;
@@ -139,68 +106,18 @@ nav a:hover::after {
     justify-content: space-between;
 }
 
-.post p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-.post-image {
+.post img {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 200px;
+    object-fit: cover;
     transition: opacity 0.3s;
 }
 
-.post:hover .post-image {
+.post:hover img {
     opacity: 0.7;
 }
 
-.post-link {
-    display: block; /* ブロック要素として表示 */
-    text-decoration: none; /* 下線を削除 */
-    color: inherit; /* 親要素の色を継承 */
-}
-
-.post-link:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* 白濁効果 */
-    transition: background-color 0.3s ease; /* ホバー時のトランジション */
-}
-
-.post img {
-    width: 100%; /* 幅を100%に設定 */
-    height: 200px; /* 高さを200pxに設定 */
-    object-fit: cover; /* 中央部分をトリミング */
-    transition: opacity 0.3s ease; /* トランジションを追加 */
-}
-
-.post-link:hover img {
-    opacity: 0.8; /* ホバー時に白濁効果 */
-}
-
-.new-posts article {
-    background: #fff;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.new-posts h3 a {
-    text-decoration: none;
-    color: #333;
-}
-
-.more {
-    display: block;
-    text-align: center;
-    margin: 20px 0;
-    text-decoration: none;
-    color: #007bff;
-}
-
-footer {
+.footer {
     text-align: center;
     padding: 10px 0;
     background: #333;
@@ -217,7 +134,6 @@ footer {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
     object-fit: cover;
 }
 
@@ -233,161 +149,37 @@ footer {
     border-radius: 10px;
 }
 
-.header-link {
-    text-decoration: none;
-    color: #333;
-}
-
-.header-link:hover {
-    text-decoration: underline;
-}
-
-.large-post {
-    width: calc(100% - 20px);
-    margin: 10px;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .post {
-        width: 100%; /* スマホでは1列にする */
-    }
-}
-
-.center-cropped {
-    width: 100%; /* 幅を100%に設定 */
-    height: 400px; /* 高さを設定（必要に応じて調整） */
-    object-fit: cover; /* 中央部分をトリミング */
-    object-position: center; /* 中央を基準に配置 */
-}
-
-.top-image {
-    position: relative; /* 相対位置を設定 */
-    overflow: hidden; /* はみ出した部分を隠す */
-    width: 100vw; /* 幅を画面全体に設定 */
-    height: 400px; /* 高さを設定（必要に応じて調整） */
-    background-color: transparent; /* 背景色を透明に設定 */
-    border: none; /* 枠線を削除 */
-}
-
-.top-image img {
-    width: 100%; /* 幅を100%に設定 */
-    height: 100%; /* 高さを100%に設定 */
-    object-fit: cover; /* 中央部分をトリミング */
-    position: absolute; /* 絶対位置を設定 */
-    top: 0; /* 上端に配置 */
-    left: 0; /* 左端に配置 */
-}
-
-.centered-title {
-    text-align: center; /* テキストを中央に配置 */
-    margin: 20px 0; /* 上下に余白を追加 */
-}
-
-.detail-image {
-    width: 70%; /* 画面幅の70%（左右に15%ずつ余白を持たせる） */
-    margin: 0 auto; /* 中央に配置 */
-    display: block; /* ブロック要素として表示 */
-    object-fit: cover; /* 中央部分をトリミング */
-    height: auto; /* 高さは自動調整 */
-}
-
-.content-container {
-    width: 70%; /* 画面幅の70% */
-    margin: 0 auto; /* 中央に配置 */
-    padding: 0 15%; /* 左右に15%の余白 */
-}
-
-.back-link {
-    display: inline-block; /* インラインブロック要素として表示 */
-    margin-top: 20px; /* 上に余白を追加 */
-    text-decoration: none; /* 下線を削除 */
-    color: #007BFF; /* リンクの色を設定 */
-    font-weight: bold; /* 太字に設定 */
-}
-
-.content-container h1 {
-    text-align: center; /* テキストを中央に配置 */
-    margin: 20px 0; /* 上下に余白を追加 */
-}
-
-.breadcrumb {
-    margin: 20px 0; /* 上下に余白を追加 */
-    font-size: 14px; /* フォントサイズを設定 */
-}
-
-.breadcrumb a {
-    text-decoration: underline; /* 下線を追加 */
-    color: #555; /* 濃いグレーに設定 */
-}
-
-.breadcrumb a:hover {
-    text-decoration: underline; /* ホバー時に下線を表示 */
-    color: #333; /* ホバー時の色をさらに濃く */
-}
-
 .first-view {
-    height: 100vh; /* 縦幅を画面全体に設定 */
-    position: relative; /* 相対位置を設定 */
-    overflow: hidden; /* はみ出した部分を隠す */
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .first-view .top-image img {
-    width: 100%; /* 幅を100%に設定 */
-    height: 100%; /* 高さを100%に設定 */
-    object-fit: cover; /* 画像をトリミングして全体を表示 */
-    position: absolute; /* 絶対位置を設定 */
-    top: 0; /* 上に配置 */
-    left: 0; /* 左に配置 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .scroll_down {
-    position: absolute; /* 絶対位置を設定 */
-    bottom: 20px; /* 下のスペースを設定 */
-    left: 50%; /* 中央に配置 */
-    transform: translate(-50%, 0); /* 中央揃え */
-    z-index: 10; /* 他の要素の上に表示 */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10;
 }
 
 .scroll_down a {
     color: #000;
     font-size: 16px;
     letter-spacing: 2px;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    display: block;
-    background-size: 14px auto;
-    z-index: 2;
     text-decoration: none; 
-    transform: translate(-50%, -50%);
 }
 
 .scroll_down a:before {
-    position: absolute;
-    top: calc(50% - 56px);
-    left: calc(50% - 8px);
-    transform: rotate(-45deg);
-    display: block;
-    width: 12px;
-    height: 12px;
-    content: "";
-    border: 2px solid #000;
-    border-width: 0px 0 2px 2px;
-}
-
-.scroll_down a:after {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border: 2px solid #000;
-    content: "";
-    border-radius: 100%;
-    top: calc(50% - 64px);
-    left: calc(50% - 19px);
-}
-
-.scroll_down a span::before {
     content: '';
     position: absolute;
     top: 0;
@@ -396,78 +188,17 @@ footer {
     width: 34px;
     height: 34px;
     border-radius: 100%;
-    box-sizing: border-box;
     box-shadow: 0 0 0 0 #000;
     opacity: 0;
     animation: circle 3s infinite;
-    top: calc(50% - 63px);
-    left: calc(50% - 19px);
 }
 
 @keyframes circle {
     0% { opacity: 0; }
     30% { opacity: 1; }
     60% { box-shadow: 0 0 0 40px rgba(255,255,255,.1); opacity: 0; }
-    100% { opacity: 0; }
-}
-
-.text {
-    display: block;
-    margin-top: 70px;
-    margin-left: -14px;
-    font-size: 12px;
-    color: #000;
-    text-transform: uppercase;
-    white-space: nowrap;
-    letter-spacing: 2px;
-}
-
-.arrow {
-    position: absolute;
-    width: 28px;
-    height: 5px;
-    opacity: 1; /* 初期状態を1に設定 */
-    transform: scale3d(0.5, 0.5, 0.5);
-    animation: move 3s ease-out infinite;
-}
-
-.arrow:first-child {
-    animation: move 3s ease-out 1s infinite;
-}
-
-.arrow:nth-child(2) {
-    animation: move 3s ease-out 2s infinite;
-}
-
-.arrow:before,
-.arrow:after {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 51%;
-    background: #000;
-}
-
-.arrow:before {
-    left: 0;
-    transform: skew(0deg, 30deg);
-}
-
-.arrow:after {
-    right: 0;
-    width: 50%;
-    transform: skew(0deg, -30deg);
-}
-
-@keyframes move {
-    0% { opacity: 1; transform: translateY(0); }
-    25% { opacity: 1; transform: translateY(10px); }
-    50% { opacity: 1; transform: translateY(20px); }
-    75% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 0; transform: translateY(40px); }
 }
 
 html {
-    scroll-behavior: smooth; /* スムーズスクロールを有効にする */
+    scroll-behavior: smooth;
 }
