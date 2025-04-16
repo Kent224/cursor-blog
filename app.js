@@ -29,6 +29,11 @@ app.get('/', async (req, res) => {
     res.render('index', { posts }); // index.ejsに渡す
 });
 
+// Aboutページ
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
 // Postsページ
 app.get('/posts', (req, res) => {
     const posts = getPosts(); // 投稿を取得

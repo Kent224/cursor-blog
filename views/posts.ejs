@@ -3,28 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記事一覧 - Lux</title>
     <link rel="stylesheet" href="/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <title>All Posts</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 </head>
 <body>
     <%- include('partials/header') %>
+
     <main>
-        <h2 class="all-posts-title">All Posts</h2>
-        <section class="new-posts">
-            <div class="posts-container">
-                <% for (let i = 0; i < posts.length; i++) { %>
-                    <div class="post">
-                        <a href="/posts/detail/<%= posts[i].id %>" class="post-link">
-                            <img src="<%= posts[i].image %>" alt="Post Image <%= i + 1 %>">
-                            <h3><%= posts[i].title %></h3>
-                            <p><%= posts[i].content %></p>
-                        </a>
-                    </div>
-                <% } %>
+        <section class="posts-section">
+            <div class="posts-header">
+                <h1>記事一覧</h1>
+                <div class="category-filter">
+                    <select id="category-select">
+                        <option value="all">すべてのカテゴリー</option>
+                        <option value="technology">テクノロジー</option>
+                        <option value="lifestyle">ライフスタイル</option>
+                        <option value="travel">旅行</option>
+                        <option value="food">フード</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="posts-grid">
+                <% posts.forEach(function(post) { %>
+                    <article class="post-card">
+                        <img src="<%= post.image %>" alt="<%= post.title %>" class="post-image">
+                        <div class="post-content">
+                            <div class="post-category"><%= post.category %></div>
+                            <h3 class="post-title"><%= post.title %></h3>
+                            <div class="post-date"><%= post.date %></div>
+                            <p class="post-excerpt"><%= post.excerpt %></p>
+                            <a href="/posts/<%= post.slug %>" class="read-more">続きを読む</a>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="prev">前へ</a>
+                <div class="page-numbers">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                </div>
+                <a href="#" class="next">次へ</a>
             </div>
         </section>
     </main>
+
     <%- include('partials/footer') %>
 </body>
 </html>
